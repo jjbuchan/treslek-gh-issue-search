@@ -1,0 +1,30 @@
+{
+  "name": "treslek-gh-issue-search",
+  "version": "0.0.1",
+  "description": "A treslek plugin that searched a githib repo's issues for a string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jjbuchan/treslek-gh-issue-search.git"
+  },
+  "keywords": [
+    "treslek",
+    "irc",
+    "github",
+    "issues"
+  ],
+  "author": "James Buchan <jamesjbuchan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjbuchan/treslek-gh-issue-search/issues"
+  },
+  "homepage": "https://github.com/jjbuchan/treslek-gh-issue-search",
+  "dependencies": {
+    "moment": "^2.8.3",
+    "request": "^2.47.0",
+    "sprintf": "^0.1.4"
+  }
+}
