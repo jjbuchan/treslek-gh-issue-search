@@ -5,7 +5,6 @@ var config = require('./config.json');
 
 /*
  * GitHub Issue Search Plugin
- * 
  * Populate the list of commands available from the config file.
  */
 var IssueSearch = function() {
@@ -23,6 +22,7 @@ Object.keys(config.commands).forEach(function(repo) {
   IssueSearch.prototype[repo] = function(bot, to, from, msg, callback) {
     var settings = config.commands[repo],
         creds ='',
+        label = settings.label ? 'label:'+ settings.label : '',
         intervalId, options;
 
     if (settings.username && settings.password) {
@@ -30,7 +30,7 @@ Object.keys(config.commands).forEach(function(repo) {
     }
 
     options = {
-      url: sprintf('https://%sapi.github.com/search/issues?q=repo:%s+is:open+%s', creds, settings.repo, encodeURIComponent(msg)),
+      url: sprintf('https://%sapi.github.com/search/issues?q=repo:%s+is:open+%s+%s', creds, settings.repo, label, encodeURIComponent(msg)),
       headers: {
         'User-Agent': 'Roarbot'
       }
@@ -49,7 +49,6 @@ Object.keys(config.commands).forEach(function(repo) {
           results = JSON.parse(body);
 
       clearInterval(intervalId);
-
       if (!results && !results.total_count) {
         bot.say(to, 'Unable to retrieve any issues for ' + msg);
         callback();
