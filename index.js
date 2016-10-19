@@ -30,7 +30,7 @@ Object.keys(config.commands).forEach(function(repo) {
     }
 
     options = {
-      url: sprintf('https://%sapi.github.com/search/issues?q=repo:%s+%s', creds, settings.repo, encodeURIComponent(msg)),
+      url: sprintf('https://%sapi.github.com/search/issues?q=repo:%s+is:open+%s', creds, settings.repo, encodeURIComponent(msg)),
       headers: {
         'User-Agent': 'Roarbot'
       }
